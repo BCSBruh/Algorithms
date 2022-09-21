@@ -3,13 +3,30 @@ package PA2;
 import java.util.ArrayList;
 
 public class Tree {
-    Node node, root;
+    public static ArrayList<Node> bst = new ArrayList<Node>();
 
-    ArrayList<Node> tree = new ArrayList<Node>();
+    public static Node root;
 
-    Tree(Node x) {
-        this.node = x;
-        tree.add(node);
-        root = tree.get(0);
+    public void add(Node node) {
+        bst.add(node);
     }
+
+    public static void printBST() {
+        for (int i = 0; i < bst.size(); i++) {
+            int x = bst.get(i).key;
+
+            System.out.print(x + ", ");
+        }
+
+    }
+
+    public static void inorderTreeWalk(Node x) {
+        if(x != null) {
+            inorderTreeWalk(x.left);
+            System.out.print(x.key);
+            inorderTreeWalk(x.right);
+        }
+    }
+
+
 }

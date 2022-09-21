@@ -3,6 +3,8 @@ package PA2;
 import java.util.ArrayList;
 
 public class Builder {
+    Node node;
+    Tree tree = new Tree();
 
     public void treeInsert(Tree t, Node z) {
         Node y = null;
@@ -17,17 +19,24 @@ public class Builder {
             }
         }
 
-        z.parent = y;
+        z.parent = y; //Tree.findParent(y, z);
 
         if (y == null) {
             t.root = z;
-            t.tree.add(t.root);
+            t.add(t.root);
         }else if (z.key < y.key) {
             y.left = z;
-            t.tree.add(y.left);
+            t.add(y.left);
         }else {
             y.right = z;
-            t.tree.add(y.right);
+            t.add(y.right);
         }
     }
+
+    public void runner(int x) {
+        this.node = new Node(x);
+        treeInsert(tree, node);
+    }
+
+
 }

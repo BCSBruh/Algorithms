@@ -2,17 +2,13 @@ package PA2;
 
 public class Driver {
     public static void main(String[] args) {
-        int[] arr1 = {0,3,4,5,7,2,1};
+        int[] arr1 = {6, 2, 8, 5};
 
-        Builder bst = new Builder();
-        Node root;
-        Tree t = new Tree(null);
-
-        for(int i = 0; i < arr1.length; i++) {
-            root = new Node(arr1[i]);
-            bst.treeInsert(t, root);
+        Builder build = new Builder();
+        for (int i = 0; i < arr1.length; i++) {
+            build.runner(arr1[i]);
         }
 
-        System.out.println("done");
+        Tree.inorderTreeWalk(Tree.root);
     }
 }
